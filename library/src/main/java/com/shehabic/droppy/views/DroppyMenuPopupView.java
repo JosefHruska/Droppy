@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ScrollView;
@@ -46,5 +47,10 @@ public class DroppyMenuPopupView extends ScrollView {
             setBackgroundDrawable(defaultDrawable);
         }
         a.recycle();
+    }
+
+    public void dismiss() {
+        ViewGroup popupParent = (ViewGroup) getParent();
+        popupParent.removeView(this);
     }
 }
